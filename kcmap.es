@@ -143,16 +143,16 @@ function draw() {
   _.forOwn(SPOTS, (coord, id) => {
     const c = coord.map(n => n / SCALE)
     const fs = id.length > 1 ? 12 : 16
-    elements.push(`<circle cx="${c[0]}" cy="${c[1]}" r="3" style="stroke: none; fill:#000;"/>`)
-    elements.push(`<text x="${c[0]}" y="${c[1]+fs}" font-family="sans-serif" font-size="${fs}">${id}</text>`)
+    elements.push(`<circle cx="${c[0]}" cy="${c[1]}" r="4" style="fill:#d00;"/>`)
+    elements.push(`<text x="${c[0]}" y="${c[1]+fs}" style="fill:#d00" font-family="sans-serif" font-size="${fs}">${id}</text>`)
   })
 
   fs.writeFileSync('draw.html', `
 <html><body>
 <svg width="800" height="480">
   <defs>
-  <marker id="arrow" refx="7" refy="3" markerWidth="9" markerHeight="9" orient="auto" markerUnits="strokeWidth">
-    <path d="M0,0 L0,6 L7,3 z" fill="#d00" />
+  <marker id="arrow" refx="7" refy="2" markerWidth="9" markerHeight="9" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L0,4 L7,2 z" fill="#000" />
   </marker>
   </defs>
   ${elements.join('\n')}
