@@ -1,10 +1,14 @@
 {
-  "devDependencies": {
+  "scripts": {
+    "start": "babel kcmap.es > kcmap.js && node kcmap.js"
+  },
+  "dependencies": {
     "babel-eslint": "^6.0.4",
     "babel-preset-es2015-node6": "^0.3.0",
     "babel-preset-stage-0": "^6.5.0",
     "eslint": "^2.12.0",
     "eslint-plugin-import": "^1.8.1",
+    "fs-extra": "^1.0.0",
     "libxmljs": "^0.18.0"
   }
 }
