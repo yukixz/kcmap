@@ -83,7 +83,7 @@ function extract() {
   }
 }
 
-function fit() {
+function fit_route() {
   const TOLERANCE = 0.5
   _.forOwn(ROUTE, ([start, end], id) => {
     if (start == null) return
@@ -97,26 +97,30 @@ function fit() {
     _.forOwn(distance, (dst, id) => {
       if (id === mid) return
       if (distance[mid] > dst * TOLERANCE) {
-        console.error(`Spot${mid}: Fitting run over tolerance with Spot${id}.`)
+        console.warn(`Spot${mid}: Fitting run over tolerance with Spot${id}.`)
       }
     })
     ROUTE[id] = [SPOTS[mid], end]
   })
 }
 
-function check_spots() {
+function check_name() {
   if (!fs.existsSync('spots.json')) {
     fs.writeFileSync('spots.json', "{}")
   }
   const named = JSON.parse(fs.readFileSync('spots.json'))
   const unamed = {}
   _.forOwn(SPOTS, (coord, id) => {
-    if (named[id] == null)
+    if (named[id] != null) {
+      delete SPOTS[id]
+      SPOTS[named[id]] = coord
+    } else {
       unamed[id] = coord.join('_')
+    }
   })
   fs.writeFileSync('spots_unamed.json', JSON.stringify(unamed, null, 2))
   if (Object.keys(unamed).length > 0) {
-    console.error([
+    console.warn([
       `Unamed spot found!`,
       `Please set their name in "spots.json"`,
     ].join('\n'))
@@ -126,7 +130,6 @@ function check_spots() {
 function draw() {
   const SCALE = 20
   const elements = []
-  const spots = JSON.parse(fs.readFileSync('spots.json'))
 
   _.forOwn(ROUTE, ([start, end], id) => {
     // TODO: Hightlight start spot
@@ -139,10 +142,9 @@ function draw() {
   })
   _.forOwn(SPOTS, (coord, id) => {
     const c = coord.map(n => n / SCALE)
-    const t = spots[id] == null ? coord.join('_') : spots[id]
-    const fs = t.length > 1 ? 12 : 16
+    const fs = id.length > 1 ? 12 : 16
     elements.push(`<circle cx="${c[0]}" cy="${c[1]}" r="3" style="stroke: none; fill:#000;"/>`)
-    elements.push(`<text x="${c[0]}" y="${c[1]+fs}" font-family="sans-serif" font-size="${fs}">${t}</text>`)
+    elements.push(`<text x="${c[0]}" y="${c[1]+fs}" font-family="sans-serif" font-size="${fs}">${id}</text>`)
   })
 
   fs.writeFileSync('draw.html', `
@@ -177,7 +179,7 @@ function clean() {
 (() => {
   const PROCEDURE = {
     'c': [clean],
-    'e': [extract, fit, check_spots, draw],
+    'e': [extract, fit_route, check_name, draw],
     'g': [],
   }
   const cmd = process.argv[2] || 'e'
