@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+<?xml version="1.0"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
     width="800" height="480">
   <defs>
-  <marker id="arrow" refx="7" refy="2" markerWidth="9" markerHeight="9" orient="auto" markerUnits="strokeWidth">
+  <marker id="arrow" refX="7" refY="2" markerWidth="6" markerHeight="9" orient="auto" markerUnits="strokeWidth">
     <path d="M0,0 L0,4 L7,2 z" fill="#000" />
   </marker>
   </defs>
@@ -37,7 +37,7 @@
 <line x1="520" y1="299" x2="641" y2="215" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
 <text x="580.5" y="257" font-family="sans-serif" font-size="16">15</text>
 <circle cx="145" cy="248" r="4" style="fill:#dd0;"/>
-<text x="145" y="264" style="fill:#dd0" font-family="sans-serif" font-size="16">0</text>
+<text x="145" y="264" style="fill:#dd0" font-family="sans-serif" font-size="16">1</text>
 <circle cx="519" cy="201" r="4" style="fill:#d00;"/>
 <text x="519" y="217" style="fill:#d00" font-family="sans-serif" font-size="16">H</text>
 <circle cx="641" cy="215" r="4" style="fill:#d00;"/>
