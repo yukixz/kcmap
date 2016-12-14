@@ -183,10 +183,9 @@ function clean() {
 
 (() => {
   const PROCEDURE = {
-    'clean'   : [clean],
-    'draw'    : [extract, check_name, fit_route, draw],
+    ''        : [extract, check_name, fit_route, draw],
     'generate': [extract, check_name, fit_route, generate],
-    ''        : [extract, check_name, fit_route, draw, generate],
+    'clean'   : [clean],
   }
   const cmd = process.argv[2] || ''
   for (const proceduce of PROCEDURE[cmd]) {
