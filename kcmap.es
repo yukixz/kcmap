@@ -134,11 +134,11 @@ function draw() {
   })
 
   fs.writeFileSync('draw.svg',
-`<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+`<?xml version="1.0"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
     width="800" height="480">
   <defs>
-  <marker id="arrow" refx="7" refy="2" markerWidth="9" markerHeight="9" orient="auto" markerUnits="strokeWidth">
+  <marker id="arrow" refX="7" refY="2" markerWidth="6" markerHeight="9" orient="auto" markerUnits="strokeWidth">
     <path d="M0,0 L0,4 L7,2 z" fill="#000" />
   </marker>
   </defs>
