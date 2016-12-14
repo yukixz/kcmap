@@ -160,7 +160,8 @@ function generate() {
   })
   const spots = {}
   _.forOwn(SPOTS, ({coord, start}, id) => {
-    spots[id] = [coord[0], coord[1], start]
+    let type = start ? 'start' : ''
+    spots[id] = [coord[0], coord[1], type]
   })
   fs.writeJSONSync('poi.json', {route, spots})
 }
