@@ -13,13 +13,11 @@ function safeParseInt(string) {
 (() => {
   const final = {}
   for(const fpath of fs.walkSync('./poi')) {
-    try{
     const m = path.basename(fpath).match(/^(\d+)_(\d+)\.json$/)
     if (m == null) continue
     area = safeParseInt(m[1])
     cell = safeParseInt(m[2])
     final[`${area}-${cell}`] = fs.readJSONSync(fpath)
-    }catch(err) {console.log(fpath)}
   }
   fs.writeJSONSync('./poi/final.json', final, {spaces: ''})
 })()
