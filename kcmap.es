@@ -43,33 +43,19 @@ function extract() {
       let dx = 0  // delta = (start - end) x, y
       let dy = 0
       if (shapeRef != null) {
+        const refMatrix = shapeRef.get('matrix')
+        dx = safeParseInt(refMatrix.attr('translateX').value())
+        dy = safeParseInt(refMatrix.attr('translateY').value())
+
         const shapeId = shapeRef.attr('characterId').value()
         const shape = xml.get(`//item[@shapeId='${shapeId}']`)
-
-        // const bitmaps = shape.find('shapes/fillStyles/fillStyles/item')
-        // let bitmapMatrix = null
-        // for (const bitmap of bitmaps) {
-        //   const bitmapId = bitmap.attr('bitmapId').value()
-        //   if (bitmapId === '65535') continue
-        //   if (bitmapMatrix != null)
-        //     throw new Error(`Shape${shapeId}: Nultiple bitmapMatrix`)
-        //   else
-        //     bitmapMatrix = bitmap.get('bitmapMatrix')
-        // }
-        // const hasRotate = bitmapMatrix.attr('hasRotate').value()
-        // // Use bitmap matrix coord when no rotation
-        // if (hasRotate === "false") {
-        //   dx = safeParseInt(bitmapMatrix.attr('translateX').value())
-        //   dy = safeParseInt(bitmapMatrix.attr('translateY').value())
-        // }
-
         const shapeBounds = shape.get('shapeBounds')
         const Xmax = safeParseInt(shapeBounds.attr('Xmax').value())
         const Xmin = safeParseInt(shapeBounds.attr('Xmin').value())
         const Ymax = safeParseInt(shapeBounds.attr('Ymax').value())
         const Ymin = safeParseInt(shapeBounds.attr('Ymin').value())
-        dx = Xmax + Xmin
-        dy = Ymax + Ymin
+        dx = (dx + (Xmax + Xmin) / 2) * 2
+        dy = (dy + (Ymax + Ymin) / 2) * 2
       }
       const start = (dx | dy) === 0 ? null : [end[0] + dx, end[1] + dy]
 
