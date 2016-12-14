@@ -13,6 +13,7 @@ function safeParseInt(string) {
 
 const ROUTE = {}
 const SPOTS = {}
+const SPOTS_NAME = {}
 
 function extract() {
   const xmlData = fs.readFileSync("swf.xml")
@@ -60,7 +61,7 @@ function extract() {
       const start = (dx | dy) === 0 ? null : [end[0] + dx, end[1] + dy]
 
       ROUTE[id] = {start, end}
-      SPOTS[end.join(',')] = {coord: end, start: start == null}
+      SPOTS[end.join()] = {coord: end, start: start == null}
     }
     catch (e) {
       console.error(line.toString())
@@ -92,7 +93,7 @@ function fit_route() {
 
 function check_name() {
   if (!fs.existsSync('spots.json')) {
-    fs.writeFileSync('spots.json', "{}")
+    fs.writeJSONSync('spots.json', {})
   }
   const named = JSON.parse(fs.readFileSync('spots.json'))
   const unamed = {}
@@ -100,11 +101,13 @@ function check_name() {
     if (named[id] != null) {
       delete SPOTS[id]
       SPOTS[named[id]] = spot
+      SPOTS_NAME[id] = named[id]
     } else {
       unamed[id] = spot.coord.join('_')
+      SPOTS_NAME[id] = unamed[id]
     }
   })
-  fs.writeFileSync('spots_unamed.json', JSON.stringify(unamed, null, 2))
+  fs.writeJSONSync('spots_unamed.json', unamed)
   if (Object.keys(unamed).length > 0) {
     console.warn([
       `Unamed spot found!`,
@@ -147,8 +150,23 @@ function draw() {
 ` )
 }
 
+function generate() {
+  const route = {}
+  _.forOwn(ROUTE, ({start, end}, id) => {
+    route[id] = [
+      start ? SPOTS_NAME[start.join()] : null,
+      end   ? SPOTS_NAME[end.join()]   : null,
+    ]
+  })
+  const spots = {}
+  _.forOwn(SPOTS, ({coord, start}, id) => {
+    spots[id] = [coord[0], coord[1], start]
+  })
+  fs.writeJSONSync('poi.json', {route, spots})
+}
+
 function clean() {
-  const FILE = ['kcmap.js', 'spots_unamed.json', 'draw.html']
+  const FILE = ['kcmap.js', 'spots_unamed.json', 'draw.svg', 'poi.json']
   for (const file of FILE) {
     try {
       fs.unlinkSync(file)
@@ -164,11 +182,12 @@ function clean() {
 
 (() => {
   const PROCEDURE = {
-    'c': [clean],
-    'e': [extract, check_name, fit_route, draw],
-    'g': [],
+    'clean'   : [clean],
+    'draw'    : [extract, check_name, fit_route, draw],
+    'generate': [extract, check_name, fit_route, generate],
+    ''        : [extract, check_name, fit_route, draw, generate],
   }
-  const cmd = process.argv[2] || 'e'
+  const cmd = process.argv[2] || ''
   for (const proceduce of PROCEDURE[cmd]) {
     proceduce()
   }

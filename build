@@ -7,7 +7,10 @@ for w in 01_01 01_02 01_03 01_04 01_05 01_06 01_07 02_01 02_02 02_03 02_04 02_05
         echo ">>> $w"
         cp "source/$w.xml" swf.xml
         cp "source/$w.json" spots.json
-        node kcmap.js
+        node kcmap.js "$@"
         mv draw.svg "built/$w.svg"
+        mv poi.json "poi/$w.json"
     fi
 done
+
+node kcmap.js clean
