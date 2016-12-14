@@ -73,8 +73,8 @@ function extract() {
       }
       const start = (dx | dy) === 0 ? null : [end[0] + dx, end[1] + dy]
 
-      ROUTE[id] = [start, end]
-      SPOTS[end.join(',')] = end
+      ROUTE[id] = {start, end}
+      SPOTS[end.join(',')] = {coord: end, start: start == null}
     }
     catch (e) {
       console.error(line.toString())
@@ -85,22 +85,22 @@ function extract() {
 
 function fit_route() {
   const TOLERANCE = 0.5
-  _.forOwn(ROUTE, ([start, end], id) => {
+  _.forOwn(ROUTE, ({start, end}, id) => {
     if (start == null) return
     const distance = {}
     let mid = null   // id of minimum distance
-    _.forOwn(SPOTS, (coord, id) => {
+    _.forOwn(SPOTS, ({coord}, id) => {
       distance[id] = Math.sqrt(Math.pow((coord[0] - start[0]), 2) + Math.pow((coord[1] - start[1]), 2))
       if (mid == null || distance[id] < distance[mid])
         mid = id
     })
-    _.forOwn(distance, (dst, id) => {
-      if (id === mid) return
+    _.forOwn(distance, (dst, did) => {
+      if (did === mid) return
       if (distance[mid] > dst * TOLERANCE) {
-        console.warn(`Spot${mid}: Fitting run over tolerance with Spot${id}.`)
+        console.warn(`Route${id}: Fitting run over tolerance. M=${mid},${distance[mid]}, D=${did},${dst}`)
       }
     })
-    ROUTE[id] = [SPOTS[mid], end]
+    ROUTE[id].start = SPOTS[mid].coord
   })
 }
 
@@ -110,12 +110,12 @@ function check_name() {
   }
   const named = JSON.parse(fs.readFileSync('spots.json'))
   const unamed = {}
-  _.forOwn(SPOTS, (coord, id) => {
+  _.forOwn(SPOTS, (spot, id) => {
     if (named[id] != null) {
       delete SPOTS[id]
-      SPOTS[named[id]] = coord
+      SPOTS[named[id]] = spot
     } else {
-      unamed[id] = coord.join('_')
+      unamed[id] = spot.coord.join('_')
     }
   })
   fs.writeFileSync('spots_unamed.json', JSON.stringify(unamed, null, 2))
@@ -131,20 +131,20 @@ function draw() {
   const SCALE = 20
   const elements = []
 
-  _.forOwn(ROUTE, ([start, end], id) => {
-    // TODO: Hightlight start spot
-    if (start == null) start = end
+  _.forOwn(ROUTE, ({start, end}, id) => {
+    if (start == null) return
     const s = start.map(n => n / SCALE)
     const e =   end.map(n => n / SCALE)
     const m = [(s[0] + e[0]) / 2, (s[1] + e[1]) / 2]
     elements.push(`<line x1="${s[0]}" y1="${s[1]}" x2="${e[0]}" y2="${e[1]}" stroke="black" stroke-width="2" marker-end="url(#arrow)" />`)
     elements.push(`<text x="${m[0]}" y="${m[1]}" font-family="sans-serif" font-size="16">${id}</text>`)
   })
-  _.forOwn(SPOTS, (coord, id) => {
+  _.forOwn(SPOTS, ({coord, start}, id) => {
+    const color = start ? "#dd0" : "#d00"
     const c = coord.map(n => n / SCALE)
     const fs = id.length > 1 ? 12 : 16
-    elements.push(`<circle cx="${c[0]}" cy="${c[1]}" r="4" style="fill:#d00;"/>`)
-    elements.push(`<text x="${c[0]}" y="${c[1]+fs}" style="fill:#d00" font-family="sans-serif" font-size="${fs}">${id}</text>`)
+    elements.push(`<circle cx="${c[0]}" cy="${c[1]}" r="4" style="fill:${color};"/>`)
+    elements.push(`<text x="${c[0]}" y="${c[1]+fs}" style="fill:${color}" font-family="sans-serif" font-size="${fs}">${id}</text>`)
   })
 
   fs.writeFileSync('draw.html', `
@@ -179,7 +179,7 @@ function clean() {
 (() => {
   const PROCEDURE = {
     'c': [clean],
-    'e': [extract, fit_route, check_name, draw],
+    'e': [extract, check_name, fit_route, draw],
     'g': [],
   }
   const cmd = process.argv[2] || 'e'
