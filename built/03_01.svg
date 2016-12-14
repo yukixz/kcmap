@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="800" height="480">
+  <defs>
+  <marker id="arrow" refx="7" refy="2" markerWidth="9" markerHeight="9" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L0,4 L7,2 z" fill="#000" />
+  </marker>
+  </defs>
+  <line x1="85" y1="226" x2="174" y2="309" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="129.5" y="267.5" font-family="sans-serif" font-size="16">1</text>
+<line x1="85" y1="226" x2="156" y2="162" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="120.5" y="194" font-family="sans-serif" font-size="16">2</text>
+<line x1="174" y1="309" x2="294" y2="308" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="234" y="308.5" font-family="sans-serif" font-size="16">3</text>
+<line x1="156" y1="162" x2="162" y2="68" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="159" y="115" font-family="sans-serif" font-size="16">4</text>
+<line x1="156" y1="162" x2="250" y2="141" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="203" y="151.5" font-family="sans-serif" font-size="16">5</text>
+<line x1="174" y1="309" x2="265" y2="205.5" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="219.5" y="257.25" font-family="sans-serif" font-size="16">6</text>
+<circle cx="85" cy="226" r="4" style="fill:#dd0;"/>
+<text x="85" y="242" style="fill:#dd0" font-family="sans-serif" font-size="16">0</text>
+<circle cx="156" cy="162" r="4" style="fill:#d00;"/>
+<text x="156" y="178" style="fill:#d00" font-family="sans-serif" font-size="16">A</text>
+<circle cx="162" cy="68" r="4" style="fill:#d00;"/>
+<text x="162" y="84" style="fill:#d00" font-family="sans-serif" font-size="16">B</text>
+<circle cx="250" cy="141" r="4" style="fill:#d00;"/>
+<text x="250" y="157" style="fill:#d00" font-family="sans-serif" font-size="16">C</text>
+<circle cx="265" cy="205.5" r="4" style="fill:#d00;"/>
+<text x="265" y="221.5" style="fill:#d00" font-family="sans-serif" font-size="16">E</text>
+<circle cx="294" cy="308" r="4" style="fill:#d00;"/>
+<text x="294" y="324" style="fill:#d00" font-family="sans-serif" font-size="16">F</text>
+<circle cx="174" cy="309" r="4" style="fill:#d00;"/>
+<text x="174" y="325" style="fill:#d00" font-family="sans-serif" font-size="16">D</text>
+</svg>
