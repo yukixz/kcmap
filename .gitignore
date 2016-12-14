@@ -1,2 +1,6 @@
 node_modules/
-stage*
+
+draw.html
+swf.xml
+spots.json
+spots_unamed.json
