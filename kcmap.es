@@ -22,25 +22,25 @@ function extract() {
   const map0 = xml.get(`//item[@name='map']`)
   const map1Id = map0.attr('characterId').value()
   const map1 = xml.get(`//item[@spriteId='${map1Id}']`)
-  const lines = map1.find('subTags/item')
+  const lineRefs = map1.find('subTags/item')
 
-  for (const line of lines) {
+  for (const lineRef of lineRefs) {
     try {
-      const nameAttr = line.attr('name')
+      const nameAttr = lineRef.attr('name')
       if (nameAttr == null) continue
       const name = nameAttr.value()
       const [, id] = name.match(/^line(\d+)$/) || []
       if (id == null) continue
 
       // end coord
-      const matrix = line.get('matrix')
+      const matrix = lineRef.get('matrix')
       const endX = matrix.attr('translateX').value()
       const endY = matrix.attr('translateY').value()
       const end = [safeParseInt(endX), safeParseInt(endY)]
       // start coord
-      const spId = line.attr('characterId').value()   // sprite
-      const sp = xml.get(`//item[@spriteId='${spId}']`)
-      const shapeRef = sp.get('subTags/item[@characterId]')  // shape
+      const spriteId = lineRef.attr('characterId').value()   // sprite lineX
+      const sprite = xml.get(`//item[@spriteId='${spriteId}']`)
+      const shapeRef = sprite.get('subTags/item[@characterId]')  // shape
       let dx = 0  // delta = (start - end) x, y
       let dy = 0
       if (shapeRef != null) {
