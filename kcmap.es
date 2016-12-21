@@ -45,8 +45,8 @@ function extract() {
       let dy = 0
       if (shapeRef != null) {
         const refMatrix = shapeRef.get('matrix')
-        dx = safeParseInt(refMatrix.attr('translateX').value())
-        dy = safeParseInt(refMatrix.attr('translateY').value())
+        const shX = safeParseInt(refMatrix.attr('translateX').value())
+        const shY = safeParseInt(refMatrix.attr('translateY').value())
 
         const shapeId = shapeRef.attr('characterId').value()
         const shape = xml.get(`//item[@shapeId='${shapeId}']`)
@@ -55,8 +55,8 @@ function extract() {
         const Xmin = safeParseInt(shapeBounds.attr('Xmin').value())
         const Ymax = safeParseInt(shapeBounds.attr('Ymax').value())
         const Ymin = safeParseInt(shapeBounds.attr('Ymin').value())
-        dx = (dx + (Xmax + Xmin) / 2) * 2
-        dy = (dy + (Ymax + Ymin) / 2) * 2
+        dx = (shX + (Xmax + Xmin) / 2) * 2
+        dy = (shY + (Ymax + Ymin) / 2) * 2
       }
       const start = (dx | dy) === 0 ? null : [end[0] + dx, end[1] + dy]
 
@@ -107,8 +107,8 @@ function check_name() {
       SPOTS_NAME[id] = unamed[id]
     }
   })
-  fs.writeJSONSync('spots_unamed.json', unamed)
   if (Object.keys(unamed).length > 0) {
+    fs.writeJSONSync('spots_unamed.json', unamed)
     console.warn([
       `Unamed spot found!`,
       `Please set their name in "spots.json"`,

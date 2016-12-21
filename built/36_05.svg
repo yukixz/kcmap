@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+    width="800" height="480">
+  <defs>
+  <marker id="arrow" refX="7" refY="2" markerWidth="6" markerHeight="9" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L0,4 L7,2 z" fill="#000" />
+  </marker>
+  </defs>
+  <line x1="576" y1="82" x2="681" y2="85" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="628.5" y="83.5" font-family="sans-serif" font-size="16">1</text>
+<line x1="702" y1="252" x2="624" y2="224" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="663" y="238" font-family="sans-serif" font-size="16">2</text>
+<line x1="624" y1="224" x2="589" y2="314" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="606.5" y="269" font-family="sans-serif" font-size="16">3</text>
+<line x1="510" y1="148" x2="576" y2="82" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="543" y="115" font-family="sans-serif" font-size="16">4</text>
+<line x1="589" y1="314" x2="520" y2="222" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="554.5" y="268" font-family="sans-serif" font-size="16">5</text>
+<line x1="458" y1="94" x2="510" y2="148" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="484" y="121" font-family="sans-serif" font-size="16">6</text>
+<line x1="589" y1="314" x2="473" y2="289" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="531" y="301.5" font-family="sans-serif" font-size="16">7</text>
+<line x1="441" y1="191" x2="458" y2="94" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="449.5" y="142.5" font-family="sans-serif" font-size="16">8</text>
+<line x1="473" y1="289" x2="441" y2="191" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="457" y="240" font-family="sans-serif" font-size="16">9</text>
+<line x1="441" y1="191" x2="382" y2="90" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="411.5" y="140.5" font-family="sans-serif" font-size="16">10</text>
+<line x1="382" y1="90" x2="335" y2="198" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="358.5" y="144" font-family="sans-serif" font-size="16">11</text>
+<line x1="382" y1="90" x2="297" y2="125" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="339.5" y="107.5" font-family="sans-serif" font-size="16">12</text>
+<line x1="335" y1="198" x2="250" y2="293" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="292.5" y="245.5" font-family="sans-serif" font-size="16">13</text>
+<line x1="335" y1="198" x2="230" y2="209" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="282.5" y="203.5" font-family="sans-serif" font-size="16">14</text>
+<line x1="250" y1="293" x2="156" y2="259" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="203" y="276" font-family="sans-serif" font-size="16">15</text>
+<line x1="156" y1="259" x2="102" y2="192" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="129" y="225.5" font-family="sans-serif" font-size="16">16</text>
+<line x1="576" y1="82" x2="622" y2="165" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="599" y="123.5" font-family="sans-serif" font-size="16">17</text>
+<line x1="297" y1="125" x2="225" y2="88" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="261" y="106.5" font-family="sans-serif" font-size="16">18</text>
+<line x1="102" y1="192" x2="174" y2="147" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="138" y="169.5" font-family="sans-serif" font-size="16">19</text>
+<line x1="102" y1="192" x2="138" y2="95" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="120" y="143.5" font-family="sans-serif" font-size="16">20</text>
+<line x1="458" y1="94" x2="576" y2="82" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="517" y="88" font-family="sans-serif" font-size="16">21</text>
+<line x1="520" y1="222" x2="473" y2="289" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="496.5" y="255.5" font-family="sans-serif" font-size="16">22</text>
+<line x1="297" y1="125" x2="335" y2="198" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="316" y="161.5" font-family="sans-serif" font-size="16">23</text>
+<line x1="250" y1="293" x2="230" y2="209" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="240" y="251" font-family="sans-serif" font-size="16">24</text>
+<line x1="230" y1="209" x2="156" y2="259" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="193" y="234" font-family="sans-serif" font-size="16">25</text>
+<line x1="335" y1="318" x2="416" y2="276" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="375.5" y="297" font-family="sans-serif" font-size="16">26</text>
+<line x1="416" y1="276" x2="441" y2="191" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="428.5" y="233.5" font-family="sans-serif" font-size="16">27</text>
+<line x1="335" y1="318" x2="335" y2="198" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="335" y="258" font-family="sans-serif" font-size="16">28</text>
+<line x1="335" y1="318" x2="250" y2="293" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="292.5" y="305.5" font-family="sans-serif" font-size="16">29</text>
+<circle cx="702" cy="252" r="4" style="fill:#dd0;"/>
+<text x="702" y="268" style="fill:#dd0" font-family="sans-serif" font-size="16">1</text>
+<circle cx="335" cy="318" r="4" style="fill:#dd0;"/>
+<text x="335" y="334" style="fill:#dd0" font-family="sans-serif" font-size="16">2</text>
+<circle cx="681" cy="85" r="4" style="fill:#d00;"/>
+<text x="681" y="101" style="fill:#d00" font-family="sans-serif" font-size="16">A</text>
+<circle cx="576" cy="82" r="4" style="fill:#d00;"/>
+<text x="576" y="98" style="fill:#d00" font-family="sans-serif" font-size="16">D</text>
+<circle cx="622" cy="165" r="4" style="fill:#d00;"/>
+<text x="622" y="181" style="fill:#d00" font-family="sans-serif" font-size="16">Q</text>
+<circle cx="624" cy="224" r="4" style="fill:#d00;"/>
+<text x="624" y="240" style="fill:#d00" font-family="sans-serif" font-size="16">B</text>
+<circle cx="589" cy="314" r="4" style="fill:#d00;"/>
+<text x="589" y="330" style="fill:#d00" font-family="sans-serif" font-size="16">C</text>
+<circle cx="520" cy="222" r="4" style="fill:#d00;"/>
+<text x="520" y="238" style="fill:#d00" font-family="sans-serif" font-size="16">E</text>
+<circle cx="473" cy="289" r="4" style="fill:#d00;"/>
+<text x="473" y="305" style="fill:#d00" font-family="sans-serif" font-size="16">G</text>
+<circle cx="441" cy="191" r="4" style="fill:#d00;"/>
+<text x="441" y="207" style="fill:#d00" font-family="sans-serif" font-size="16">I</text>
+<circle cx="458" cy="94" r="4" style="fill:#d00;"/>
+<text x="458" y="110" style="fill:#d00" font-family="sans-serif" font-size="16">H</text>
+<circle cx="510" cy="148" r="4" style="fill:#d00;"/>
+<text x="510" y="164" style="fill:#d00" font-family="sans-serif" font-size="16">F</text>
+<circle cx="382" cy="90" r="4" style="fill:#d00;"/>
+<text x="382" y="106" style="fill:#d00" font-family="sans-serif" font-size="16">J</text>
+<circle cx="297" cy="125" r="4" style="fill:#d00;"/>
+<text x="297" y="141" style="fill:#d00" font-family="sans-serif" font-size="16">L</text>
+<circle cx="225" cy="88" r="4" style="fill:#d00;"/>
+<text x="225" y="104" style="fill:#d00" font-family="sans-serif" font-size="16">R</text>
+<circle cx="335" cy="198" r="4" style="fill:#d00;"/>
+<text x="335" y="214" style="fill:#d00" font-family="sans-serif" font-size="16">K</text>
+<circle cx="230" cy="209" r="4" style="fill:#d00;"/>
+<text x="230" y="225" style="fill:#d00" font-family="sans-serif" font-size="16">N</text>
+<circle cx="250" cy="293" r="4" style="fill:#d00;"/>
+<text x="250" y="309" style="fill:#d00" font-family="sans-serif" font-size="16">M</text>
+<circle cx="156" cy="259" r="4" style="fill:#d00;"/>
+<text x="156" y="275" style="fill:#d00" font-family="sans-serif" font-size="16">O</text>
+<circle cx="102" cy="192" r="4" style="fill:#d00;"/>
+<text x="102" y="208" style="fill:#d00" font-family="sans-serif" font-size="16">P</text>
+<circle cx="174" cy="147" r="4" style="fill:#d00;"/>
+<text x="174" y="163" style="fill:#d00" font-family="sans-serif" font-size="16">S</text>
+<circle cx="138" cy="95" r="4" style="fill:#d00;"/>
+<text x="138" y="111" style="fill:#d00" font-family="sans-serif" font-size="16">T</text>
+<circle cx="416" cy="276" r="4" style="fill:#d00;"/>
+<text x="416" y="292" style="fill:#d00" font-family="sans-serif" font-size="16">U</text>
+</svg>
