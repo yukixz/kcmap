@@ -27,21 +27,21 @@
 <line x1="647" y1="165" x2="655" y2="301" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
 <text x="651" y="233" font-family="sans-serif" font-size="16">10</text>
 <circle cx="419" cy="143" r="4" style="fill:#dd0;"/>
-<text x="419" y="155" style="fill:#dd0" font-family="sans-serif" font-size="12">8380,2860</text>
+<text x="419" y="159" style="fill:#dd0" font-family="sans-serif" font-size="16">1</text>
 <circle cx="495" cy="208" r="4" style="fill:#d00;"/>
-<text x="495" y="220" style="fill:#d00" font-family="sans-serif" font-size="12">9900,4160</text>
+<text x="495" y="224" style="fill:#d00" font-family="sans-serif" font-size="16">A</text>
 <circle cx="507" cy="301" r="4" style="fill:#d00;"/>
-<text x="507" y="313" style="fill:#d00" font-family="sans-serif" font-size="12">10140,6020</text>
+<text x="507" y="317" style="fill:#d00" font-family="sans-serif" font-size="16">B</text>
 <circle cx="585" cy="133" r="4" style="fill:#d00;"/>
-<text x="585" y="145" style="fill:#d00" font-family="sans-serif" font-size="12">11700,2660</text>
+<text x="585" y="149" style="fill:#d00" font-family="sans-serif" font-size="16">C</text>
 <circle cx="582" cy="268" r="4" style="fill:#d00;"/>
-<text x="582" y="280" style="fill:#d00" font-family="sans-serif" font-size="12">11640,5360</text>
+<text x="582" y="284" style="fill:#d00" font-family="sans-serif" font-size="16">D</text>
 <circle cx="647" cy="165" r="4" style="fill:#d00;"/>
-<text x="647" y="177" style="fill:#d00" font-family="sans-serif" font-size="12">12940,3300</text>
+<text x="647" y="181" style="fill:#d00" font-family="sans-serif" font-size="16">E</text>
 <circle cx="380" cy="299" r="4" style="fill:#d00;"/>
-<text x="380" y="311" style="fill:#d00" font-family="sans-serif" font-size="12">7600,5980</text>
+<text x="380" y="315" style="fill:#d00" font-family="sans-serif" font-size="16">F</text>
 <circle cx="247" cy="279" r="4" style="fill:#d00;"/>
-<text x="247" y="291" style="fill:#d00" font-family="sans-serif" font-size="12">4940,5580</text>
+<text x="247" y="295" style="fill:#d00" font-family="sans-serif" font-size="16">G</text>
 <circle cx="655" cy="301" r="4" style="fill:#d00;"/>
-<text x="655" y="313" style="fill:#d00" font-family="sans-serif" font-size="12">13100,6020</text>
+<text x="655" y="317" style="fill:#d00" font-family="sans-serif" font-size="16">Z</text>
 </svg>

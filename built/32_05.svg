@@ -45,35 +45,33 @@
 <line x1="511" y1="117" x2="513" y2="233" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
 <text x="512" y="175" font-family="sans-serif" font-size="16">19</text>
 <circle cx="112" cy="193" r="4" style="fill:#dd0;"/>
-<text x="112" y="205" style="fill:#dd0" font-family="sans-serif" font-size="12">2240,3860</text>
+<text x="112" y="209" style="fill:#dd0" font-family="sans-serif" font-size="16">1</text>
 <circle cx="257" cy="193" r="4" style="fill:#d00;"/>
-<text x="257" y="205" style="fill:#d00" font-family="sans-serif" font-size="12">5140,3860</text>
+<text x="257" y="209" style="fill:#d00" font-family="sans-serif" font-size="16">A</text>
 <circle cx="294" cy="287" r="4" style="fill:#d00;"/>
-<text x="294" y="299" style="fill:#d00" font-family="sans-serif" font-size="12">5880,5740</text>
+<text x="294" y="303" style="fill:#d00" font-family="sans-serif" font-size="16">B</text>
 <circle cx="333" cy="134" r="4" style="fill:#d00;"/>
-<text x="333" y="146" style="fill:#d00" font-family="sans-serif" font-size="12">6660,2680</text>
+<text x="333" y="150" style="fill:#d00" font-family="sans-serif" font-size="16">C</text>
 <circle cx="366" cy="320" r="4" style="fill:#d00;"/>
-<text x="366" y="332" style="fill:#d00" font-family="sans-serif" font-size="12">7320,6400</text>
-<circle cx="385" cy="248" r="4" style="fill:#d00;"/>
-<text x="385" y="260" style="fill:#d00" font-family="sans-serif" font-size="12">7700,4960</text>
-<circle cx="396" cy="83" r="4" style="fill:#d00;"/>
-<text x="396" y="95" style="fill:#d00" font-family="sans-serif" font-size="12">7920,1660</text>
-<circle cx="459" cy="154" r="4" style="fill:#d00;"/>
-<text x="459" y="166" style="fill:#d00" font-family="sans-serif" font-size="12">9180,3080</text>
-<circle cx="462" cy="281" r="4" style="fill:#d00;"/>
-<text x="462" y="293" style="fill:#d00" font-family="sans-serif" font-size="12">9240,5620</text>
-<circle cx="511" cy="117" r="4" style="fill:#d00;"/>
-<text x="511" y="129" style="fill:#d00" font-family="sans-serif" font-size="12">10220,2340</text>
-<circle cx="513" cy="233" r="4" style="fill:#d00;"/>
-<text x="513" y="245" style="fill:#d00" font-family="sans-serif" font-size="12">10260,4660</text>
-<circle cx="607" cy="266" r="4" style="fill:#d00;"/>
-<text x="607" y="278" style="fill:#d00" font-family="sans-serif" font-size="12">12140,5320</text>
-<circle cx="651" cy="230" r="4" style="fill:#d00;"/>
-<text x="651" y="242" style="fill:#d00" font-family="sans-serif" font-size="12">13020,4600</text>
-<circle cx="662" cy="159" r="4" style="fill:#d00;"/>
-<text x="662" y="171" style="fill:#d00" font-family="sans-serif" font-size="12">13240,3180</text>
-<circle cx="604" cy="137" r="4" style="fill:#d00;"/>
-<text x="604" y="149" style="fill:#d00" font-family="sans-serif" font-size="12">12080,2740</text>
+<text x="366" y="336" style="fill:#d00" font-family="sans-serif" font-size="16">D</text>
 <circle cx="384" cy="248" r="4" style="fill:#d00;"/>
-<text x="384" y="260" style="fill:#d00" font-family="sans-serif" font-size="12">7680,4960</text>
+<text x="384" y="264" style="fill:#d00" font-family="sans-serif" font-size="16">E</text>
+<circle cx="396" cy="83" r="4" style="fill:#d00;"/>
+<text x="396" y="99" style="fill:#d00" font-family="sans-serif" font-size="16">F</text>
+<circle cx="459" cy="154" r="4" style="fill:#d00;"/>
+<text x="459" y="170" style="fill:#d00" font-family="sans-serif" font-size="16">G</text>
+<circle cx="462" cy="281" r="4" style="fill:#d00;"/>
+<text x="462" y="297" style="fill:#d00" font-family="sans-serif" font-size="16">H</text>
+<circle cx="511" cy="117" r="4" style="fill:#d00;"/>
+<text x="511" y="133" style="fill:#d00" font-family="sans-serif" font-size="16">I</text>
+<circle cx="513" cy="233" r="4" style="fill:#d00;"/>
+<text x="513" y="249" style="fill:#d00" font-family="sans-serif" font-size="16">J</text>
+<circle cx="607" cy="266" r="4" style="fill:#d00;"/>
+<text x="607" y="282" style="fill:#d00" font-family="sans-serif" font-size="16">K</text>
+<circle cx="651" cy="230" r="4" style="fill:#d00;"/>
+<text x="651" y="246" style="fill:#d00" font-family="sans-serif" font-size="16">L</text>
+<circle cx="662" cy="159" r="4" style="fill:#d00;"/>
+<text x="662" y="175" style="fill:#d00" font-family="sans-serif" font-size="16">M</text>
+<circle cx="604" cy="137" r="4" style="fill:#d00;"/>
+<text x="604" y="153" style="fill:#d00" font-family="sans-serif" font-size="16">N</text>
 </svg>
