@@ -68,6 +68,8 @@ function extract() {
       console.error(e.stack)
     }
   }
+  // console.log(ROUTE)
+  // console.log(SPOTS)
 }
 
 function fit_route() {
@@ -84,7 +86,7 @@ function fit_route() {
     _.forOwn(distance, (dst, did) => {
       if (did === mid) return
       if (distance[mid] > dst * TOLERANCE) {
-        console.warn(`Route${id}: Fitting run over tolerance. M=${mid},${distance[mid]}, D=${did},${dst}`)
+        console.warn(`Route${id}: Fitting over tolerance. M=${mid},${distance[mid]}, D=${did},${dst}`)
       }
     })
     ROUTE[id].start = SPOTS[mid].coord
@@ -99,6 +101,9 @@ function check_name() {
   const unamed = {}
   _.forOwn(SPOTS, (spot, id) => {
     if (named[id] != null) {
+      if (SPOTS[named[id]] != null) {
+        console.warn(`Multiple spot have same name ${named[id]}`)
+      }
       delete SPOTS[id]
       SPOTS[named[id]] = spot
       SPOTS_NAME[id] = named[id]
@@ -110,8 +115,7 @@ function check_name() {
   if (Object.keys(unamed).length > 0) {
     fs.writeJSONSync('spots_unamed.json', unamed)
     console.warn([
-      `Unamed spot found!`,
-      `Please set their name in "spots.json"`,
+      `Unamed spot found! Please set their name in "spots.json"`,
     ].join('\n'))
   }
 }
@@ -184,6 +188,7 @@ function clean() {
 (() => {
   const PROCEDURE = {
     ''        : [extract, check_name, fit_route, draw],
+    'nofit'   : [extract, check_name, draw],
     'generate': [extract, check_name, fit_route, generate],
     'clean'   : [clean],
   }
