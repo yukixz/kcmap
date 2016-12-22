@@ -45,7 +45,9 @@
 <line x1="679" y1="224" x2="581" y2="165" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
 <text x="630" y="194.5" font-family="sans-serif" font-size="16">19</text>
 <circle cx="86" cy="222" r="4" style="fill:#dd0;"/>
-<text x="86" y="234" style="fill:#dd0" font-family="sans-serif" font-size="12">1720_4440_0</text>
+<text x="86" y="238" style="fill:#dd0" font-family="sans-serif" font-size="16">1</text>
+<circle cx="462" cy="328" r="4" style="fill:#dd0;"/>
+<text x="462" y="344" style="fill:#dd0" font-family="sans-serif" font-size="16">2</text>
 <circle cx="180" cy="165" r="4" style="fill:#d00;"/>
 <text x="180" y="181" style="fill:#d00" font-family="sans-serif" font-size="16">A</text>
 <circle cx="267" cy="127" r="4" style="fill:#d00;"/>
@@ -69,7 +71,5 @@
 <circle cx="651" cy="114" r="4" style="fill:#d00;"/>
 <text x="651" y="130" style="fill:#d00" font-family="sans-serif" font-size="16">K</text>
 <circle cx="581" cy="165" r="4" style="fill:#d00;"/>
-<text x="581" y="177" style="fill:#d00" font-family="sans-serif" font-size="12">11620_3300_19</text>
-<circle cx="462" cy="328" r="4" style="fill:#dd0;"/>
-<text x="462" y="340" style="fill:#dd0" font-family="sans-serif" font-size="12">9240_6560_20</text>
+<text x="581" y="181" style="fill:#d00" font-family="sans-serif" font-size="16">L</text>
 </svg>

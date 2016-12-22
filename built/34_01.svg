@@ -33,7 +33,7 @@
 <line x1="536" y1="103" x2="462" y2="235" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
 <text x="499" y="169" font-family="sans-serif" font-size="16">13</text>
 <circle cx="88" cy="143" r="4" style="fill:#dd0;"/>
-<text x="88" y="159" style="fill:#dd0" font-family="sans-serif" font-size="16">0</text>
+<text x="88" y="159" style="fill:#dd0" font-family="sans-serif" font-size="16">1</text>
 <circle cx="196" cy="171" r="4" style="fill:#d00;"/>
 <text x="196" y="187" style="fill:#d00" font-family="sans-serif" font-size="16">B</text>
 <circle cx="165" cy="258" r="4" style="fill:#d00;"/>

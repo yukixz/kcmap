@@ -51,9 +51,9 @@
 <line x1="146" y1="152" x2="209" y2="188" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
 <text x="177.5" y="170" font-family="sans-serif" font-size="16">22</text>
 <circle cx="659" cy="114" r="4" style="fill:#dd0;"/>
-<text x="659" y="126" style="fill:#dd0" font-family="sans-serif" font-size="12">13180_2280_0</text>
+<text x="659" y="130" style="fill:#dd0" font-family="sans-serif" font-size="16">1</text>
 <circle cx="691" cy="239.5" r="4" style="fill:#dd0;"/>
-<text x="691" y="251.5" style="fill:#dd0" font-family="sans-serif" font-size="12">13820_4790_23</text>
+<text x="691" y="255.5" style="fill:#dd0" font-family="sans-serif" font-size="16">2</text>
 <circle cx="623" cy="276" r="4" style="fill:#d00;"/>
 <text x="623" y="292" style="fill:#d00" font-family="sans-serif" font-size="16">A</text>
 <circle cx="600.95" cy="160" r="4" style="fill:#d00;"/>

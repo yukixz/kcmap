@@ -50,12 +50,12 @@
 <text x="500" y="247" font-family="sans-serif" font-size="16">21</text>
 <line x1="566" y1="257" x2="642" y2="209" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
 <text x="604" y="233" font-family="sans-serif" font-size="16">22</text>
-<circle cx="73" cy="242" r="4" style="fill:#dd0;"/>
-<text x="73" y="254" style="fill:#dd0" font-family="sans-serif" font-size="12">1460_4840_23</text>
 <circle cx="215" cy="179" r="4" style="fill:#dd0;"/>
-<text x="215" y="191" style="fill:#dd0" font-family="sans-serif" font-size="12">4300_3580_0</text>
+<text x="215" y="195" style="fill:#dd0" font-family="sans-serif" font-size="16">1</text>
+<circle cx="73" cy="242" r="4" style="fill:#dd0;"/>
+<text x="73" y="258" style="fill:#dd0" font-family="sans-serif" font-size="16">2</text>
 <circle cx="177" cy="324" r="4" style="fill:#dd0;"/>
-<text x="177" y="336" style="fill:#dd0" font-family="sans-serif" font-size="12">3540_6480_24</text>
+<text x="177" y="340" style="fill:#dd0" font-family="sans-serif" font-size="16">3</text>
 <circle cx="167" cy="244" r="4" style="fill:#d00;"/>
 <text x="167" y="260" style="fill:#d00" font-family="sans-serif" font-size="16">A</text>
 <circle cx="260" cy="243" r="4" style="fill:#d00;"/>
