@@ -2,11 +2,13 @@
 
 babel kcmap.es > kcmap.js
 
-for w in $(ls source); do
+[[ -n "$@" ]] && fl="$@" || fl=$(ls source)
+
+for w in $fl; do
     if [[ -d "source/$w" ]]; then
         echo ">>> $w"
         cp source/$w/* .
-        node kcmap.js "$@"
+        node kcmap.js
         [[ -f spots_unamed.json ]] && mv spots_unamed.json "source/$w/"
         [[ -f draw.svg ]] && mv draw.svg "built/$w.svg"
         [[ -f poi.json ]] && mv poi.json "poi/$w.json"
