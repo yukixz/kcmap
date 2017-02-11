@@ -4,8 +4,8 @@ import fs from 'fs-extra'
 import libxmljs from 'libxmljs'
 
 function safeParseInt(string) {
-  const number = parseInt(string)
-  if (Number.isNaN(number) || number.toString() !== string) {
+  const number = Number(string)
+  if (Number.isNaN(number)) {
     throw new Error(`Parse int failed: ${string}`)
   }
   return number
@@ -18,58 +18,80 @@ const SPOTS_NAME = {}
 function extract() {
   const xmlData = fs.readFileSync("swf.xml")
   const xml = libxmljs.parseXml(xmlData)
+  // const lineRefs = xml.find(`//item[starts-with(@name, 'line')]`)
 
-  const map0 = xml.get(`//item[@name='map']`)
-  const map1Id = map0.attr('characterId').value()
-  const map1 = xml.get(`//item[@spriteId='${map1Id}']`)
-  const lineRefs = map1.find('subTags/item')
+  const containers = []
 
-  for (const lineRef of lineRefs) {
-    try {
-      const nameAttr = lineRef.attr('name')
-      if (nameAttr == null) continue
-      const name = nameAttr.value()
-      const [, id] = name.match(/^line(\d+)$/) || []
-      if (id == null) continue
+  // First container
+  containers.push(xml.get(`//item[@name='map']`))
 
-      // end coord
-      const matrix = lineRef.get('matrix')
-      const endX = matrix.attr('translateX').value()
-      const endY = matrix.attr('translateY').value()
-      const end = [safeParseInt(endX), safeParseInt(endY)]
-      // start coord
-      const spriteId = lineRef.attr('characterId').value()   // sprite lineX
-      const sprite = xml.get(`//item[@spriteId='${spriteId}']`)
-      const shapeRef = sprite.get('subTags/item[@characterId]')  // shape
-      let dx = 0  // delta = (start - end) x, y
-      let dy = 0
-      if (shapeRef != null) {
-        const refMatrix = shapeRef.get('matrix')
-        const shX = safeParseInt(refMatrix.attr('translateX').value())
-        const shY = safeParseInt(refMatrix.attr('translateY').value())
+  while (containers.length > 0) {
+    const mapRef = containers.pop()
+    const mapId = mapRef.attr('characterId').value()
+    const map = xml.get(`//item[@spriteId='${mapId}']`)
+    const itemRefs = map.find('subTags/item')
 
-        const shapeId = shapeRef.attr('characterId').value()
-        const shape = xml.get(`//item[@shapeId='${shapeId}']`)
-        const shapeBounds = shape.get('shapeBounds')
-        const Xmax = safeParseInt(shapeBounds.attr('Xmax').value())
-        const Xmin = safeParseInt(shapeBounds.attr('Xmin').value())
-        const Ymax = safeParseInt(shapeBounds.attr('Ymax').value())
-        const Ymin = safeParseInt(shapeBounds.attr('Ymin').value())
-        dx = (shX + (Xmax + Xmin) / 2) * 2
-        dy = (shY + (Ymax + Ymin) / 2) * 2
+    const mapMatrix = mapRef.get('matrix')
+    const mapX  = safeParseInt(mapMatrix.attr('translateX').value())
+    const mapY  = safeParseInt(mapMatrix.attr('translateY').value())
+
+    for (const itemRef of itemRefs) {
+      try {
+        const nameAttr = itemRef.attr('name')
+        if (nameAttr == null) continue
+        const name = nameAttr.value()
+        let m
+
+        m = name.match(/^extra(\d+)$/)
+        if (m != null) {
+          const itemMatrix = itemRef.get('matrix')
+          const itemAX = itemMatrix.attr('translateX')
+          const itemAY = itemMatrix.attr('translateY')
+          itemAX.value(mapX + safeParseInt(itemAX.value()))
+          itemAY.value(mapY + safeParseInt(itemAY.value()))
+          containers.push(itemRef)
+        }
+
+        m = name.match(/^line(\d+)$/)
+        if (m != null) {
+          const [, id] = m
+          // end coord
+          const matrix = itemRef.get('matrix')
+          const endX = safeParseInt(matrix.attr('translateX').value())
+          const endY = safeParseInt(matrix.attr('translateY').value())
+          const end = [mapX + endX, mapY + endY]
+          // start coord
+          const spriteId = itemRef.attr('characterId').value()   // sprite lineX
+          const sprite = xml.get(`//item[@spriteId='${spriteId}']`)
+          const shapeRef = sprite.get('subTags/item[@characterId]')  // shape
+          let dx = 0  // delta = (start - end) x, y
+          let dy = 0
+          if (shapeRef != null) {
+            const refMatrix = shapeRef.get('matrix')
+            const shX = safeParseInt(refMatrix.attr('translateX').value())
+            const shY = safeParseInt(refMatrix.attr('translateY').value())
+
+            const shapeId = shapeRef.attr('characterId').value()
+            const shape = xml.get(`//item[@shapeId='${shapeId}']`)
+            const shapeBounds = shape.get('shapeBounds')
+            const Xmax = safeParseInt(shapeBounds.attr('Xmax').value())
+            const Xmin = safeParseInt(shapeBounds.attr('Xmin').value())
+            const Ymax = safeParseInt(shapeBounds.attr('Ymax').value())
+            const Ymin = safeParseInt(shapeBounds.attr('Ymin').value())
+            dx = (shX + (Xmax + Xmin) / 2) * 2
+            dy = (shY + (Ymax + Ymin) / 2) * 2
+          }
+          const start = (dx | dy) === 0 ? null : [end[0] + dx, end[1] + dy]
+
+          ROUTE[id] = {start, end}
+          SPOTS[end.join()] = {coord: end, start: start == null}
+        }
       }
-      const start = (dx | dy) === 0 ? null : [end[0] + dx, end[1] + dy]
-
-      ROUTE[id] = {start, end}
-      SPOTS[end.join()] = {coord: end, start: start == null}
-    }
-    catch (e) {
-      console.error(line.toString())
-      console.error(e.stack)
+      catch (e) {
+        console.error(e.stack)
+      }
     }
   }
-  // console.log(ROUTE)
-  // console.log(SPOTS)
 }
 
 function fit_route() {
