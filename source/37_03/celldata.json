@@ -1,0 +1,267 @@
+{
+    "api_cell_data": [
+        {
+            "api_id": 2223,
+            "api_no": 0,
+            "api_color_no": 0,
+            "api_passed": 0
+        },
+        {
+            "api_id": 2224,
+            "api_no": 1,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 3
+        },
+        {
+            "api_id": 2225,
+            "api_no": 2,
+            "api_color_no": 4,
+            "api_passed": 0,
+            "api_distance": 2
+        },
+        {
+            "api_id": 2226,
+            "api_no": 3,
+            "api_color_no": 10,
+            "api_passed": 1,
+            "api_distance": 4
+        },
+        {
+            "api_id": 2227,
+            "api_no": 4,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 1
+        },
+        {
+            "api_id": 2228,
+            "api_no": 5,
+            "api_color_no": 2,
+            "api_passed": 1,
+            "api_distance": 1
+        },
+        {
+            "api_id": 2229,
+            "api_no": 6,
+            "api_color_no": 10,
+            "api_passed": 1,
+            "api_distance": 2
+        },
+        {
+            "api_id": 2230,
+            "api_no": 7,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 3
+        },
+        {
+            "api_id": 2231,
+            "api_no": 8,
+            "api_color_no": 10,
+            "api_passed": 0,
+            "api_distance": 3
+        },
+        {
+            "api_id": 2232,
+            "api_no": 9,
+            "api_color_no": 5,
+            "api_passed": 1,
+            "api_distance": 3
+        },
+        {
+            "api_id": 2233,
+            "api_no": 10,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 4
+        },
+        {
+            "api_id": 2234,
+            "api_no": 11,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 5
+        },
+        {
+            "api_id": 2235,
+            "api_no": 12,
+            "api_color_no": 4,
+            "api_passed": 0,
+            "api_distance": 4
+        },
+        {
+            "api_id": 2236,
+            "api_no": 13,
+            "api_color_no": 10,
+            "api_passed": 0,
+            "api_distance": 5
+        },
+        {
+            "api_id": 2237,
+            "api_no": 14,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 6
+        },
+        {
+            "api_id": 2238,
+            "api_no": 15,
+            "api_color_no": 4,
+            "api_passed": 0,
+            "api_distance": 5
+        },
+        {
+            "api_id": 2239,
+            "api_no": 16,
+            "api_color_no": 4,
+            "api_passed": 0,
+            "api_distance": 6
+        },
+        {
+            "api_id": 2240,
+            "api_no": 17,
+            "api_color_no": 10,
+            "api_passed": 1,
+            "api_distance": 7
+        },
+        {
+            "api_id": 2241,
+            "api_no": 18,
+            "api_color_no": 4,
+            "api_passed": 0,
+            "api_distance": 7
+        },
+        {
+            "api_id": 2242,
+            "api_no": 19,
+            "api_color_no": 5,
+            "api_passed": 1,
+            "api_distance": 6
+        },
+        {
+            "api_id": 2243,
+            "api_no": 20,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 1
+        },
+        {
+            "api_id": 2244,
+            "api_no": 21,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 1
+        },
+        {
+            "api_id": 2245,
+            "api_no": 22,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 6
+        },
+        {
+            "api_id": 2246,
+            "api_no": 23,
+            "api_color_no": 10,
+            "api_passed": 1,
+            "api_distance": 7
+        },
+        {
+            "api_id": 2247,
+            "api_no": 24,
+            "api_color_no": 5,
+            "api_passed": 1,
+            "api_distance": 6
+        },
+        {
+            "api_id": 2248,
+            "api_no": 25,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 2
+        },
+        {
+            "api_id": 2249,
+            "api_no": 26,
+            "api_color_no": 10,
+            "api_passed": 0,
+            "api_distance": 2
+        },
+        {
+            "api_id": 2250,
+            "api_no": 27,
+            "api_color_no": 10,
+            "api_passed": 1,
+            "api_distance": 3
+        },
+        {
+            "api_id": 2251,
+            "api_no": 28,
+            "api_color_no": 4,
+            "api_passed": 0,
+            "api_distance": 3
+        },
+        {
+            "api_id": 2252,
+            "api_no": 29,
+            "api_color_no": 4,
+            "api_passed": 0,
+            "api_distance": 3
+        },
+        {
+            "api_id": 2253,
+            "api_no": 30,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 4
+        },
+        {
+            "api_id": 2254,
+            "api_no": 31,
+            "api_color_no": 4,
+            "api_passed": 0,
+            "api_distance": 4
+        },
+        {
+            "api_id": 2255,
+            "api_no": 32,
+            "api_color_no": 4,
+            "api_passed": 0,
+            "api_distance": 4
+        },
+        {
+            "api_id": 2256,
+            "api_no": 33,
+            "api_color_no": 0,
+            "api_passed": 0
+        }
+    ],
+    "api_rashin_flg": 1,
+    "api_rashin_id": 3,
+    "api_maparea_id": 37,
+    "api_mapinfo_no": 3,
+    "api_no": 25,
+    "api_color_no": 4,
+    "api_event_id": 6,
+    "api_event_kind": 2,
+    "api_next": 2,
+    "api_bosscell_no": 9,
+    "api_bosscomp": 0,
+    "api_airsearch": {
+        "api_plane_type": 0,
+        "api_result": 0
+    },
+    "api_eventmap": {
+        "api_max_maphp": 4800,
+        "api_now_maphp": 4752,
+        "api_dmg": 0
+    },
+    "api_select_route": {
+        "api_select_cells": [
+            27,
+            28
+        ]
+    },
+    "api_from_no": 33
+}

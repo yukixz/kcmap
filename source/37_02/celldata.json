@@ -1,0 +1,177 @@
+{
+    "api_cell_data": [
+        {
+            "api_id": 2201,
+            "api_no": 0,
+            "api_color_no": 0,
+            "api_passed": 0
+        },
+        {
+            "api_id": 2202,
+            "api_no": 1,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 1
+        },
+        {
+            "api_id": 2203,
+            "api_no": 2,
+            "api_color_no": 10,
+            "api_passed": 0,
+            "api_distance": 2
+        },
+        {
+            "api_id": 2204,
+            "api_no": 3,
+            "api_color_no": 4,
+            "api_passed": 0,
+            "api_distance": 1
+        },
+        {
+            "api_id": 2205,
+            "api_no": 4,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 2
+        },
+        {
+            "api_id": 2206,
+            "api_no": 5,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 3
+        },
+        {
+            "api_id": 2207,
+            "api_no": 6,
+            "api_color_no": 4,
+            "api_passed": 0,
+            "api_distance": 2
+        },
+        {
+            "api_id": 2208,
+            "api_no": 7,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 3
+        },
+        {
+            "api_id": 2209,
+            "api_no": 8,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 4
+        },
+        {
+            "api_id": 2210,
+            "api_no": 9,
+            "api_color_no": 4,
+            "api_passed": 0,
+            "api_distance": 3
+        },
+        {
+            "api_id": 2211,
+            "api_no": 10,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 4
+        },
+        {
+            "api_id": 2212,
+            "api_no": 11,
+            "api_color_no": 6,
+            "api_passed": 1,
+            "api_distance": 5
+        },
+        {
+            "api_id": 2213,
+            "api_no": 12,
+            "api_color_no": 4,
+            "api_passed": 0,
+            "api_distance": 4
+        },
+        {
+            "api_id": 2214,
+            "api_no": 13,
+            "api_color_no": 5,
+            "api_passed": 1,
+            "api_distance": 6
+        },
+        {
+            "api_id": 2215,
+            "api_no": 14,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 3
+        },
+        {
+            "api_id": 2216,
+            "api_no": 15,
+            "api_color_no": 4,
+            "api_passed": 0,
+            "api_distance": 2
+        },
+        {
+            "api_id": 2217,
+            "api_no": 16,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 3
+        },
+        {
+            "api_id": 2218,
+            "api_no": 17,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 4
+        },
+        {
+            "api_id": 2219,
+            "api_no": 18,
+            "api_color_no": 4,
+            "api_passed": 0,
+            "api_distance": 3
+        },
+        {
+            "api_id": 2220,
+            "api_no": 19,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 4
+        },
+        {
+            "api_id": 2221,
+            "api_no": 20,
+            "api_color_no": 4,
+            "api_passed": 1,
+            "api_distance": 5
+        },
+        {
+            "api_id": 2222,
+            "api_no": 21,
+            "api_color_no": 6,
+            "api_passed": 1
+        }
+    ],
+    "api_rashin_flg": 1,
+    "api_rashin_id": 1,
+    "api_maparea_id": 37,
+    "api_mapinfo_no": 2,
+    "api_no": 1,
+    "api_color_no": 4,
+    "api_event_id": 4,
+    "api_event_kind": 1,
+    "api_next": 2,
+    "api_bosscell_no": 13,
+    "api_bosscomp": 1,
+    "api_airsearch": {
+        "api_plane_type": 0,
+        "api_result": 0
+    },
+    "api_eventmap": {
+        "api_max_maphp": 500,
+        "api_now_maphp": 0,
+        "api_dmg": 0
+    },
+    "api_from_no": 0
+}
