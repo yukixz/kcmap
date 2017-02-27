@@ -1,18 +1,22 @@
 #!/bin/bash
 
-babel kcmap.es > kcmap.js
+SRC=`pwd`
+STG="$SRC/stage"
+CMD=""
 
-[[ -n "$@" ]] && fl="$@" || fl=$(ls source)
+mkdir -p "$STG"
+babel "$SRC/kcmap.es" > "$STG/kcmap.js"
+cd "$STG"
 
+[[ -n "$@" ]] && fl="$@" || fl=$(ls "$SRC/source")
 for w in $fl; do
-    if [[ -d "source/$w" ]]; then
+    if [[ -d "$SRC/source/$w" ]]; then
         echo ">>> $w"
-        cp source/$w/* .
-        node kcmap.js
-        [[ -f spots_unamed.json ]] && mv spots_unamed.json "source/$w/"
-        [[ -f draw.svg ]] && mv draw.svg "built/$w.svg"
-        [[ -f poi.json ]] && mv poi.json "poi/$w.json"
+        cp -r "$SRC/source/$w/." .
+        node kcmap.js "$CMD"
+        [[ -f spots_unamed.json ]] && mv spots_unamed.json "$SRC/source/$w/"
+        [[ -f draw.svg ]] && mv draw.svg "$SRC/built/$w.svg"
+        [[ -f poi.json ]] && mv poi.json "$SRC/poi/$w.json"
+        rm *.xml *.json
     fi
 done
-
-node kcmap.js clean
