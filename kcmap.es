@@ -13,7 +13,8 @@ function safeParseInt(string) {
 
 const ROUTE = {}
 const SPOTS = {}
-const SPOTS_NAME = {}
+const DRAWS = []
+const SCALE = 20  // scale from flash coord to xml coord. (20fp = 1px)
 
 function extract() {
   const xmlData = fs.readFileSync("swf.xml")
@@ -23,7 +24,12 @@ function extract() {
   const containers = []
 
   // First container
-  containers.push(xml.get(`//item[@name='map']`))
+  const mapRef = xml.get(`//item[@name='map']`)
+  containers.push(mapRef)
+  // Set root map to (0,0)
+  const mapMatrix = mapRef.get('matrix')
+  mapMatrix.attr('translateX').value(0)
+  mapMatrix.attr('translateY').value(0)
 
   while (containers.length > 0) {
     const mapRef = containers.pop()
@@ -84,7 +90,12 @@ function extract() {
           const start = (dx | dy) === 0 ? null : [end[0] + dx, end[1] + dy]
 
           ROUTE[id] = {start, end}
-          SPOTS[end.join()] = {coord: end, start: start == null}
+          SPOTS[end.join()] = {
+            coord: end,
+            start: start == null,
+            name : end.join('_'),
+            tag  : [],
+          }
         }
       }
       catch (e) {
@@ -94,7 +105,7 @@ function extract() {
   }
 }
 
-function fit_route() {
+function fitRoute() {
   const TOLERANCE = 0.5
   _.forOwn(ROUTE, ({start, end}, id) => {
     if (start == null) return
@@ -108,14 +119,14 @@ function fit_route() {
     _.forOwn(distance, (dst, did) => {
       if (did === mid) return
       if (distance[mid] > dst * TOLERANCE) {
-        console.warn(`Route${id}: Fitting over tolerance. M=${mid},${distance[mid]}, D=${did},${dst}`)
+        console.warn(`Route${id}: Fitting over tolerance. M=${mid}:${distance[mid]}, D=${did}:${dst}`)
       }
     })
     ROUTE[id].start = SPOTS[mid].coord
   })
 }
 
-function check_name() {
+function addSpotName() {
   if (!fs.existsSync('spots.json')) {
     fs.writeJSONSync('spots.json', {})
   }
@@ -123,15 +134,13 @@ function check_name() {
   const unamed = {}
   _.forOwn(SPOTS, (spot, id) => {
     if (named[id] != null) {
-      if (SPOTS[named[id]] != null) {
-        console.warn(`Multiple spot have same name ${named[id]}`)
-      }
-      delete SPOTS[id]
-      SPOTS[named[id]] = spot
-      SPOTS_NAME[id] = named[id]
+      // if (SPOTS[named[id]] != null) {
+      //   console.warn(`Multiple spot have same name ${named[id]}`)
+      // }
+      SPOTS[id].name = named[id]
     } else {
       unamed[id] = spot.coord.join('_')
-      SPOTS_NAME[id] = unamed[id]
+      SPOTS[id].name = unamed[id]
     }
   })
   if (Object.keys(unamed).length > 0) {
@@ -142,77 +151,123 @@ function check_name() {
   }
 }
 
-function draw() {
-  const SCALE = 20
-  const elements = []
+function addSpotDistance() {
+  if (!fs.existsSync('celldata.json')) {
+    throw new Error(`celldata.json not found!`)
+  }
+  const MSAPI = fs.readJSONSync('celldata.json')
+  for (const {api_no, api_distance} of MSAPI.api_cell_data) {
+    if (api_no == null || api_distance == null)
+      continue
+    const route = ROUTE[api_no]
+    if (route == null) {
+      console.warn(`Unknown route no ${api_no}`)
+      continue
+    }
+    const id = route.end.join()
+    const spot = SPOTS[id]
+    if (spot == null) {
+      console.warn(`Unknown spot id ${id}`)
+      continue
+    }
+    if (spot.tag.includes(api_distance) === false)
+      spot.tag.push(api_distance)
+  }
+}
 
+function drawRoute() {
+  DRAWS.push(`
+<defs>
+  <marker id="arrow" refX="7" refY="2" markerWidth="6" markerHeight="9" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L0,4 L7,2 z" fill="#000" />
+  </marker>
+</defs>`)
   _.forOwn(ROUTE, ({start, end}, id) => {
     if (start == null) return
     const s = start.map(n => n / SCALE)
     const e =   end.map(n => n / SCALE)
     const m = [(s[0] + e[0]) / 2, (s[1] + e[1]) / 2]
-    elements.push(`<line x1="${s[0]}" y1="${s[1]}" x2="${e[0]}" y2="${e[1]}" stroke="black" stroke-width="2" marker-end="url(#arrow)" />`)
-    elements.push(`<text x="${m[0]}" y="${m[1]}" font-family="sans-serif" font-size="16">${id}</text>`)
+    DRAWS.push(`<line x1="${s[0]}" y1="${s[1]}" x2="${e[0]}" y2="${e[1]}" stroke="black" stroke-width="2" marker-end="url(#arrow)" />`)
+    DRAWS.push(`<text x="${m[0]}" y="${m[1]}" font-family="sans-serif" font-size="12">${id}</text>`)
   })
-  _.forOwn(SPOTS, ({coord, start}, id) => {
-    const color = start ? "#dd0" : "#d00"
-    const c = coord.map(n => n / SCALE)
-    const fs = id.length > 1 ? 12 : 16
-    elements.push(`<circle cx="${c[0]}" cy="${c[1]}" r="4" style="fill:${color};"/>`)
-    elements.push(`<text x="${c[0]}" y="${c[1]+fs}" style="fill:${color}" font-family="sans-serif" font-size="${fs}">${id}</text>`)
-  })
-
-  fs.writeFileSync('draw.svg',
-`<?xml version="1.0"?>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-    width="800" height="480">
-  <defs>
-  <marker id="arrow" refX="7" refY="2" markerWidth="6" markerHeight="9" orient="auto" markerUnits="strokeWidth">
-    <path d="M0,0 L0,4 L7,2 z" fill="#000" />
-  </marker>
-  </defs>
-  ${elements.join('\n')}
-</svg>
-` )
 }
 
-function generate() {
+function drawSpots() {
+  _.forOwn(SPOTS, ({coord, start, name, tag}) => {
+    const color = start ? "#dd0" : "#d00"
+    const c = coord.map(n => n / SCALE)  // coord
+    const t = name + (tag.length > 0 ? `(${tag.join()})` : '')  // text
+    const fs = name.length > 1 ? 12 : 16
+    DRAWS.push(`<circle cx="${c[0]}" cy="${c[1]}" r="4" style="fill:${color};"/>`)
+    DRAWS.push(`<text x="${c[0]}" y="${c[1]+fs}" style="fill:${color}" font-family="sans-serif" font-size="${fs}">${t}</text>`)
+  })
+}
+
+function drawSpotIcons() {
+  if (!fs.existsSync('celldata.json')) {
+    throw new Error(`celldata.json not found!`)
+  }
+  DRAWS.push(
+`<defs>
+  <image id="spot2"  x="-10.0" y="-10.0" width="20" height="20" xlink:href="spoticons/2.png" />
+  <image id="spot3"  x="-10.0" y="-10.0" width="20" height="20" xlink:href="spoticons/3.png" />
+  <image id="spot4"  x="-10.0" y="-10.0" width="20" height="20" xlink:href="spoticons/4.png" />
+  <image id="spot5"  x="-18.0" y="-25.0" width="37" height="40" xlink:href="spoticons/5.png" />
+  <image id="spot6"  x="-10.0" y="-10.0" width="20" height="20" xlink:href="spoticons/6.png" />
+  <image id="spot7"  x="-35.0" y="-22.0" width="71" height="45" xlink:href="spoticons/7.png" />
+  <image id="spot8"  x="-25.0" y="-25.0" width="49" height="49" xlink:href="spoticons/8.png" />
+  <image id="spot9"  x="-10.0" y="-10.0" width="20" height="20" xlink:href="spoticons/9.png" />
+  <image id="spot10" x="-24.0" y="-20.0" width="57" height="32" xlink:href="spoticons/10.png"/>
+</defs>`)
+  const MSAPI = fs.readJSONSync('celldata.json')
+  for (const {api_no, api_color_no} of MSAPI.api_cell_data) {
+    if (api_color_no < 2 || api_color_no > 10)
+      continue
+    const route = ROUTE[api_no]
+    if (route == null) {
+      console.warn(`Unknown route no ${api_no}`)
+      continue
+    }
+    route.end[0] += 340
+    route.end[1] += 440
+    const [x, y] = route.end.map(n => n / SCALE)
+    DRAWS.push(`<use xlink:href="#spot${api_color_no}" x="${x}" y="${y}"/>`)
+  }
+}
+
+function drawDone() {
+  if (DRAWS.length > 0) {
+    fs.writeFileSync('draw.svg', 
+`<?xml version="1.0"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="800" height="480">
+${DRAWS.join('\n')}
+</svg>`)
+  }
+}
+
+function genpoi() {
   const route = {}
   _.forOwn(ROUTE, ({start, end}, id) => {
     route[id] = [
-      start ? SPOTS_NAME[start.join()] : null,
-      end   ? SPOTS_NAME[end.join()]   : null,
+      start ? SPOTS[start.join()].name : null,
+      end   ? SPOTS[end.join()].name   : null,
     ]
   })
   const spots = {}
-  _.forOwn(SPOTS, ({coord, start}, id) => {
+  _.forOwn(SPOTS, ({coord, start, name}, id) => {
     let type = start ? 'start' : ''
-    spots[id] = [coord[0], coord[1], type]
+    spots[name] = [coord[0], coord[1], type]
   })
   fs.writeJSONSync('poi.json', {route, spots})
-}
-
-function clean() {
-  const FILE = ['kcmap.js', 'spots_unamed.json', 'draw.svg', 'poi.json']
-  for (const file of FILE) {
-    try {
-      fs.unlinkSync(file)
-    }
-    catch (err) {
-      if (err.code === 'ENOENT')
-        continue
-      throw err
-    }
-  }
 }
 
 
 (() => {
   const PROCEDURE = {
-    ''        : [extract, check_name, fit_route, draw],
-    'nofit'   : [extract, check_name, draw],
-    'generate': [extract, check_name, fit_route, generate],
-    'clean'   : [clean],
+    ''      : [extract, addSpotName, fitRoute, drawRoute, drawSpots, drawDone],
+    'icon'  : [extract, addSpotName, fitRoute, drawSpotIcons, drawDone],
+    'genpoi': [extract, addSpotName, fitRoute, genpoi],
   }
   const cmd = process.argv[2] || ''
   for (const proceduce of PROCEDURE[cmd]) {
