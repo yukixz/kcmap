@@ -15,6 +15,7 @@ const ROUTE = {}
 const SPOTS = {}
 const DRAWS = []
 const SCALE = 20  // scale from flash coord to xml coord. (20fp = 1px)
+const FIT_TOLERANCE = 0.7
 
 function extract() {
   const xmlData = fs.readFileSync("swf.xml")
@@ -92,7 +93,7 @@ function extract() {
           ROUTE[id] = {start, end}
           SPOTS[end.join()] = {
             coord: end,
-            start: start == null,
+            start: start == null,  // is start?
             name : end.join('_'),
             tag  : [],
           }
@@ -105,21 +106,50 @@ function extract() {
   }
 }
 
-function fitRoute() {
-  const TOLERANCE = 0.5
-  _.forOwn(ROUTE, ({start, end}, id) => {
+function fitting() {
+  // Fit spots
+  const nsmap = {}
+  _.forIn(SPOTS, ({name}, id) => {
+    if (nsmap[name] == null)
+      nsmap[name] = []
+    nsmap[name].push(id)
+  })
+  _.forIn(nsmap, (ids, name) => {
+    if (ids.length === 1) return
+    const id = ids.find(id => {
+      const [x, y] = SPOTS[id].coord
+      return x % 10 === 0 && y % 10 === 0
+    }) || ids[0]
+    const idCoord = SPOTS[id].coord
+    console.warn(`Merging spots ${ids.join('/')} to ${id}`)
+    for (const oid of ids) {
+      if (oid === id) continue
+      delete SPOTS[oid]
+      _.forIn(ROUTE, (route, id) => {
+        const {start, end} = route
+        if (start && start.join() === oid)
+          route.start = idCoord
+        if (end && end.join() === oid)
+          route.end = idCoord
+      })
+    }
+  })
+  // Fit Route
+  _.forIn(ROUTE, ({start}, id) => {
     if (start == null) return
     const distance = {}
-    let mid = null   // id of minimum distance
-    _.forOwn(SPOTS, ({coord}, id) => {
+    let mid = null, mdst = null   // id of minimum distance
+    _.forIn(SPOTS, ({coord}, id) => {
       distance[id] = Math.sqrt(Math.pow((coord[0] - start[0]), 2) + Math.pow((coord[1] - start[1]), 2))
-      if (mid == null || distance[id] < distance[mid])
+      if (mid == null || distance[id] < distance[mid]) {
         mid = id
+        mdst = distance[id]
+      }
     })
-    _.forOwn(distance, (dst, did) => {
+    _.forIn(distance, (dst, did) => {
       if (did === mid) return
-      if (distance[mid] > dst * TOLERANCE) {
-        console.warn(`Route${id}: Fitting over tolerance. M=${mid}:${distance[mid]}, D=${did}:${dst}`)
+      if (mdst > dst * FIT_TOLERANCE) {
+        console.warn(`Fit route over tolerance. Route=${id}, Min=${mid}:${mdst.toFixed(2)}, Cur=${did}:${dst.toFixed(2)}`)
       }
     })
     ROUTE[id].start = SPOTS[mid].coord
@@ -132,7 +162,7 @@ function addSpotName() {
   }
   const named = JSON.parse(fs.readFileSync('spots.json'))
   const unamed = {}
-  _.forOwn(SPOTS, (spot, id) => {
+  _.forIn(SPOTS, (spot, id) => {
     if (named[id] != null) {
       // if (SPOTS[named[id]] != null) {
       //   console.warn(`Multiple spot have same name ${named[id]}`)
@@ -160,16 +190,8 @@ function addSpotDistance() {
     if (api_no == null || api_distance == null)
       continue
     const route = ROUTE[api_no]
-    if (route == null) {
-      console.warn(`Unknown route no ${api_no}`)
-      continue
-    }
     const id = route.end.join()
     const spot = SPOTS[id]
-    if (spot == null) {
-      console.warn(`Unknown spot id ${id}`)
-      continue
-    }
     if (spot.tag.includes(api_distance) === false)
       spot.tag.push(api_distance)
   }
@@ -182,7 +204,7 @@ function drawRoute() {
     <path d="M0,0 L0,4 L7,2 z" fill="#000" />
   </marker>
 </defs>`)
-  _.forOwn(ROUTE, ({start, end}, id) => {
+  _.forIn(ROUTE, ({start, end}, id) => {
     if (start == null) return
     const s = start.map(n => n / SCALE)
     const e =   end.map(n => n / SCALE)
@@ -193,7 +215,7 @@ function drawRoute() {
 }
 
 function drawSpots() {
-  _.forOwn(SPOTS, ({coord, start, name, tag}) => {
+  _.forIn(SPOTS, ({coord, start, name, tag}) => {
     const color = start ? "#dd0" : "#d00"
     const c = coord.map(n => n / SCALE)  // coord
     const t = name + (tag.length > 0 ? `(${tag.join()})` : '')  // text
@@ -224,13 +246,10 @@ function drawSpotIcons() {
     if (api_color_no < 2 || api_color_no > 10)
       continue
     const route = ROUTE[api_no]
-    if (route == null) {
-      console.warn(`Unknown route no ${api_no}`)
-      continue
-    }
-    route.end[0] += 340
-    route.end[1] += 440
-    const [x, y] = route.end.map(n => n / SCALE)
+    const spot  = route.end
+    spot[0] += 340
+    spot[1] += 440
+    const [x, y] = spot.map(n => n / SCALE)
     DRAWS.push(`<use xlink:href="#spot${api_color_no}" x="${x}" y="${y}"/>`)
   }
 }
@@ -248,14 +267,14 @@ ${DRAWS.join('\n')}
 
 function genpoi() {
   const route = {}
-  _.forOwn(ROUTE, ({start, end}, id) => {
+  _.forIn(ROUTE, ({start, end}, id) => {
     route[id] = [
       start ? SPOTS[start.join()].name : null,
-      end   ? SPOTS[end.join()].name   : null,
+      end   ? SPOTS[  end.join()].name : null,
     ]
   })
   const spots = {}
-  _.forOwn(SPOTS, ({coord, start, name}, id) => {
+  _.forIn(SPOTS, ({coord, start, name}, id) => {
     let type = start ? 'start' : ''
     spots[name] = [coord[0], coord[1], type]
   })
@@ -265,9 +284,9 @@ function genpoi() {
 
 (() => {
   const PROCEDURE = {
-    ''      : [extract, addSpotName, fitRoute, drawRoute, drawSpots, drawDone],
-    'icon'  : [extract, addSpotName, fitRoute, drawSpotIcons, drawDone],
-    'genpoi': [extract, addSpotName, fitRoute, genpoi],
+    ''      : [extract, addSpotName, fitting, drawRoute, drawSpots, drawDone],
+    'icon'  : [extract, addSpotName, fitting, drawSpotIcons, drawDone],
+    'genpoi': [extract, addSpotName, fitting, genpoi],
   }
   const cmd = process.argv[2] || ''
   for (const proceduce of PROCEDURE[cmd]) {
