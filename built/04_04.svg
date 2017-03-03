@@ -1,39 +1,40 @@
 <?xml version="1.0"?>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-    width="800" height="480">
-  <defs>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="800" height="480">
+
+<defs>
   <marker id="arrow" refX="7" refY="2" markerWidth="6" markerHeight="9" orient="auto" markerUnits="strokeWidth">
     <path d="M0,0 L0,4 L7,2 z" fill="#000" />
   </marker>
-  </defs>
-  <line x1="700" y1="101" x2="625" y2="195" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
-<text x="662.5" y="148" font-family="sans-serif" font-size="16">1</text>
+</defs>
+<line x1="700" y1="101" x2="625" y2="195" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="662.5" y="148" font-family="sans-serif" font-size="12">1</text>
 <line x1="625" y1="195" x2="503" y2="116" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
-<text x="564" y="155.5" font-family="sans-serif" font-size="16">2</text>
+<text x="564" y="155.5" font-family="sans-serif" font-size="12">2</text>
 <line x1="625" y1="195" x2="527" y2="300" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
-<text x="576" y="247.5" font-family="sans-serif" font-size="16">3</text>
+<text x="576" y="247.5" font-family="sans-serif" font-size="12">3</text>
 <line x1="625" y1="195" x2="474" y2="208" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
-<text x="549.5" y="201.5" font-family="sans-serif" font-size="16">4</text>
+<text x="549.5" y="201.5" font-family="sans-serif" font-size="12">4</text>
 <line x1="503" y1="116" x2="368" y2="169" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
-<text x="435.5" y="142.5" font-family="sans-serif" font-size="16">5</text>
+<text x="435.5" y="142.5" font-family="sans-serif" font-size="12">5</text>
 <line x1="368" y1="169" x2="334" y2="112" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
-<text x="351" y="140.5" font-family="sans-serif" font-size="16">6</text>
+<text x="351" y="140.5" font-family="sans-serif" font-size="12">6</text>
 <line x1="368" y1="169" x2="349" y2="232" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
-<text x="358.5" y="200.5" font-family="sans-serif" font-size="16">7</text>
+<text x="358.5" y="200.5" font-family="sans-serif" font-size="12">7</text>
 <line x1="527" y1="300" x2="373" y2="341" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
-<text x="450" y="320.5" font-family="sans-serif" font-size="16">8</text>
+<text x="450" y="320.5" font-family="sans-serif" font-size="12">8</text>
 <line x1="368" y1="169" x2="190" y2="168" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
-<text x="279" y="168.5" font-family="sans-serif" font-size="16">9</text>
+<text x="279" y="168.5" font-family="sans-serif" font-size="12">9</text>
 <line x1="349" y1="232" x2="203" y2="254" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
-<text x="276" y="243" font-family="sans-serif" font-size="16">10</text>
+<text x="276" y="243" font-family="sans-serif" font-size="12">10</text>
 <line x1="474" y1="208" x2="368" y2="169" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
-<text x="421" y="188.5" font-family="sans-serif" font-size="16">11</text>
+<text x="421" y="188.5" font-family="sans-serif" font-size="12">11</text>
 <line x1="474" y1="208" x2="349" y2="232" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
-<text x="411.5" y="220" font-family="sans-serif" font-size="16">12</text>
+<text x="411.5" y="220" font-family="sans-serif" font-size="12">12</text>
 <line x1="527" y1="300" x2="349" y2="232" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
-<text x="438" y="266" font-family="sans-serif" font-size="16">13</text>
+<text x="438" y="266" font-family="sans-serif" font-size="12">13</text>
 <line x1="349" y1="232" x2="373" y2="341" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
-<text x="361" y="286.5" font-family="sans-serif" font-size="16">14</text>
+<text x="361" y="286.5" font-family="sans-serif" font-size="12">14</text>
 <circle cx="700" cy="101" r="4" style="fill:#dd0;"/>
 <text x="700" y="117" style="fill:#dd0" font-family="sans-serif" font-size="16">1</text>
 <circle cx="625" cy="195" r="4" style="fill:#d00;"/>

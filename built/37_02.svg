@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="800" height="480">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="800" height="480">
 
-  <defs>
-    <marker id="arrow" refX="7" refY="2" markerWidth="6" markerHeight="9" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,4 L7,2 z" fill="#000" />
-    </marker>
-  </defs>
+<defs>
+  <marker id="arrow" refX="7" refY="2" markerWidth="6" markerHeight="9" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L0,4 L7,2 z" fill="#000" />
+  </marker>
+</defs>
 <line x1="96" y1="161" x2="183" y2="206" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
 <text x="139.5" y="183.5" font-family="sans-serif" font-size="12">1</text>
 <line x1="183" y1="206" x2="230" y2="289" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
@@ -42,12 +43,12 @@
 <text x="528.5" y="250" font-family="sans-serif" font-size="12">17</text>
 <line x1="428" y1="196" x2="557" y2="80" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
 <text x="492.5" y="138" font-family="sans-serif" font-size="12">18</text>
-<line x1="488" y1="304" x2="569" y2="196.05" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
-<text x="528.5" y="250.025" font-family="sans-serif" font-size="12">19</text>
+<line x1="488" y1="304" x2="569" y2="196" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="528.5" y="250" font-family="sans-serif" font-size="12">19</text>
 <line x1="557" y1="80" x2="569" y2="196" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
 <text x="563" y="138" font-family="sans-serif" font-size="12">20</text>
-<line x1="569" y1="196.05" x2="577" y2="312" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
-<text x="573" y="254.025" font-family="sans-serif" font-size="12">21</text>
+<line x1="569" y1="196" x2="577" y2="312" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+<text x="573" y="254" font-family="sans-serif" font-size="12">21</text>
 <circle cx="96" cy="161" r="4" style="fill:#dd0;"/>
 <text x="96" y="177" style="fill:#dd0" font-family="sans-serif" font-size="16">1</text>
 <circle cx="183" cy="206" r="4" style="fill:#d00;"/>
@@ -76,6 +77,4 @@
 <text x="648" y="247" style="fill:#d00" font-family="sans-serif" font-size="16">M</text>
 <circle cx="409" cy="109" r="4" style="fill:#d00;"/>
 <text x="409" y="125" style="fill:#d00" font-family="sans-serif" font-size="16">F</text>
-<circle cx="569" cy="196.05" r="4" style="fill:#d00;"/>
-<text x="569" y="212.05" style="fill:#d00" font-family="sans-serif" font-size="16">J</text>
 </svg>
