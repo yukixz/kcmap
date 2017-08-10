@@ -216,12 +216,12 @@ function drawRoute() {
 
 function drawSpots() {
   _.forIn(SPOTS, ({coord, start, name, tag}) => {
-    const color = start ? "#dd0" : "#d00"
+    const color = start ? "#ff0" : "#dd0"
     const c = coord.map(n => n / SCALE)  // coord
     const t = name + (tag.length > 0 ? `(${tag.join()})` : '')  // text
     const fs = name.length > 1 ? 12 : 16
-    DRAWS.push(`<circle cx="${c[0]}" cy="${c[1]}" r="4" style="fill:${color};"/>`)
-    DRAWS.push(`<text x="${c[0]}" y="${c[1]+fs}" style="fill:${color}" font-family="sans-serif" font-size="${fs}">${t}</text>`)
+    DRAWS.push(`<circle cx="${c[0]}" cy="${c[1]}" r="3" style="fill:${color};"/>`)
+    DRAWS.push(`<text x="${c[0]}" y="${c[1]+fs}" fill="${color}" font-family="sans-serif" font-weight="bold" font-size="${fs}">${t}</text>`)
   })
 }
 
@@ -286,6 +286,7 @@ function genpoi() {
   const PROCEDURE = {
     ''      : [extract, addSpotName, fitting, drawRoute, drawSpots, drawDone],
     'icon'  : [extract, addSpotName, fitting, drawSpotIcons, drawDone],
+    'dst'   : [extract, addSpotName, addSpotDistance, fitting, drawSpots, drawDone],
     'genpoi': [extract, addSpotName, fitting, genpoi],
   }
   const cmd = process.argv[2] || ''
