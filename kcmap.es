@@ -220,8 +220,8 @@ function drawSpots() {
     const c = coord.map(n => n / SCALE)  // coord
     const t = name + (tag.length > 0 ? `(${tag.join()})` : '')  // text
     const fs = name.length > 1 ? 12 : 16
-    DRAWS.push(`<circle cx="${c[0]}" cy="${c[1]}" r="3" style="fill:${color};"/>`)
-    DRAWS.push(`<text x="${c[0]}" y="${c[1]+fs}" fill="${color}" font-family="sans-serif" font-weight="bold" font-size="${fs}">${t}</text>`)
+    DRAWS.push(`<circle cx="${c[0]}" cy="${c[1]}" r="2" style="fill:${color};"/>`)
+    DRAWS.push(`<text class="label" x="${c[0]}" y="${c[1]+fs}" fill="${color}" font-family="sans-serif" font-weight="bold" font-size="${fs}">${t}</text>`)
   })
 }
 
@@ -258,8 +258,13 @@ function drawDone() {
   if (DRAWS.length > 0) {
     fs.writeFileSync('draw.svg', 
 `<?xml version="1.0"?>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-     width="800" height="480">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="480">
+<style type="text/css"> <![CDATA[
+  .label {
+    stroke: black;
+    stroke-width: 0.3px;
+  }
+]]> </style>
 ${DRAWS.join('\n')}
 </svg>`)
   }

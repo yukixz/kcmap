@@ -9,6 +9,7 @@ const path = require('path')
     if (m == null) continue
     const area = Number(m[1])
     const cell = Number(m[2])
+    console.log(area, cell)
     final[`${area}-${cell}`] = fs.readJSONSync(fpath)
   }
   fs.writeJSONSync('./poi/final.json', final, {spaces: ''})
