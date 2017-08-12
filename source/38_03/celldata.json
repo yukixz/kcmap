@@ -1,0 +1,234 @@
+{
+  "api_cell_data": [
+    {
+      "api_id": 2302,
+      "api_no": 0,
+      "api_color_no": 0,
+      "api_passed": 0
+    },
+    {
+      "api_id": 2303,
+      "api_no": 1,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 2
+    },
+    {
+      "api_id": 2304,
+      "api_no": 2,
+      "api_color_no": 8,
+      "api_passed": 1,
+      "api_distance": 3
+    },
+    {
+      "api_id": 2305,
+      "api_no": 3,
+      "api_color_no": 8,
+      "api_passed": 1,
+      "api_distance": 2
+    },
+    {
+      "api_id": 2306,
+      "api_no": 4,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 1
+    },
+    {
+      "api_id": 2307,
+      "api_no": 5,
+      "api_color_no": 8,
+      "api_passed": 1,
+      "api_distance": 3
+    },
+    {
+      "api_id": 2308,
+      "api_no": 6,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 2
+    },
+    {
+      "api_id": 2309,
+      "api_no": 7,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 3
+    },
+    {
+      "api_id": 2310,
+      "api_no": 8,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 3
+    },
+    {
+      "api_id": 2311,
+      "api_no": 9,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 3
+    },
+    {
+      "api_id": 2312,
+      "api_no": 10,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 4
+    },
+    {
+      "api_id": 2313,
+      "api_no": 11,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 4
+    },
+    {
+      "api_id": 2314,
+      "api_no": 12,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 5
+    },
+    {
+      "api_id": 2315,
+      "api_no": 13,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 6
+    },
+    {
+      "api_id": 2316,
+      "api_no": 14,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 7
+    },
+    {
+      "api_id": 2317,
+      "api_no": 15,
+      "api_color_no": 4,
+      "api_passed": 0,
+      "api_distance": 7
+    },
+    {
+      "api_id": 2318,
+      "api_no": 16,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 7
+    },
+    {
+      "api_id": 2319,
+      "api_no": 17,
+      "api_color_no": 10,
+      "api_passed": 0,
+      "api_distance": 4
+    },
+    {
+      "api_id": 2320,
+      "api_no": 18,
+      "api_color_no": 4,
+      "api_passed": 0,
+      "api_distance": 4
+    },
+    {
+      "api_id": 2321,
+      "api_no": 19,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 5
+    },
+    {
+      "api_id": 2322,
+      "api_no": 20,
+      "api_color_no": 4,
+      "api_passed": 0,
+      "api_distance": 5
+    },
+    {
+      "api_id": 2323,
+      "api_no": 21,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 6
+    },
+    {
+      "api_id": 2324,
+      "api_no": 22,
+      "api_color_no": 6,
+      "api_passed": 1,
+      "api_distance": 8
+    },
+    {
+      "api_id": 2325,
+      "api_no": 23,
+      "api_color_no": 5,
+      "api_passed": 1,
+      "api_distance": 9
+    },
+    {
+      "api_id": 2326,
+      "api_no": 24,
+      "api_color_no": 4,
+      "api_passed": 0,
+      "api_distance": 4
+    },
+    {
+      "api_id": 2327,
+      "api_no": 25,
+      "api_color_no": 4,
+      "api_passed": 0,
+      "api_distance": 5
+    },
+    {
+      "api_id": 2328,
+      "api_no": 26,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 6
+    },
+    {
+      "api_id": 2329,
+      "api_no": 27,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 6
+    },
+    {
+      "api_id": 2330,
+      "api_no": 28,
+      "api_color_no": 4,
+      "api_passed": 0,
+      "api_distance": 7
+    },
+    {
+      "api_id": 2331,
+      "api_no": 29,
+      "api_color_no": 5,
+      "api_passed": 1,
+      "api_distance": 8
+    }
+  ],
+  "api_rashin_flg": 0,
+  "api_rashin_id": 0,
+  "api_maparea_id": 38,
+  "api_mapinfo_no": 3,
+  "api_no": 9,
+  "api_color_no": 4,
+  "api_event_id": 6,
+  "api_event_kind": 5,
+  "api_next": 1,
+  "api_bosscell_no": 29,
+  "api_bosscomp": 1,
+  "api_airsearch": {
+    "api_plane_type": 0,
+    "api_result": 0
+  },
+  "api_eventmap": {
+    "api_max_maphp": 1920,
+    "api_now_maphp": 0,
+    "api_dmg": 0
+  },
+  "api_from_no": 0
+}

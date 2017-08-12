@@ -1,0 +1,213 @@
+{
+  "api_cell_data": [
+    {
+      "api_id": 2275,
+      "api_no": 0,
+      "api_color_no": 0,
+      "api_passed": 0
+    },
+    {
+      "api_id": 2276,
+      "api_no": 1,
+      "api_color_no": 4,
+      "api_passed": 0,
+      "api_distance": 1
+    },
+    {
+      "api_id": 2277,
+      "api_no": 2,
+      "api_color_no": 4,
+      "api_passed": 0,
+      "api_distance": 1
+    },
+    {
+      "api_id": 2278,
+      "api_no": 3,
+      "api_color_no": 4,
+      "api_passed": 0,
+      "api_distance": 2
+    },
+    {
+      "api_id": 2279,
+      "api_no": 4,
+      "api_color_no": 4,
+      "api_passed": 0,
+      "api_distance": 1
+    },
+    {
+      "api_id": 2280,
+      "api_no": 5,
+      "api_color_no": 8,
+      "api_passed": 0,
+      "api_distance": 99
+    },
+    {
+      "api_id": 2281,
+      "api_no": 6,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 1
+    },
+    {
+      "api_id": 2282,
+      "api_no": 7,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 2
+    },
+    {
+      "api_id": 2283,
+      "api_no": 8,
+      "api_color_no": 4,
+      "api_passed": 0,
+      "api_distance": 2
+    },
+    {
+      "api_id": 2284,
+      "api_no": 9,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 3
+    },
+    {
+      "api_id": 2285,
+      "api_no": 10,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 3
+    },
+    {
+      "api_id": 2286,
+      "api_no": 11,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 3
+    },
+    {
+      "api_id": 2287,
+      "api_no": 12,
+      "api_color_no": 6,
+      "api_passed": 1,
+      "api_distance": 3
+    },
+    {
+      "api_id": 2288,
+      "api_no": 13,
+      "api_color_no": 10,
+      "api_passed": 0,
+      "api_distance": 4
+    },
+    {
+      "api_id": 2289,
+      "api_no": 14,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 4
+    },
+    {
+      "api_id": 2290,
+      "api_no": 15,
+      "api_color_no": 10,
+      "api_passed": 1,
+      "api_distance": 4
+    },
+    {
+      "api_id": 2291,
+      "api_no": 16,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 4
+    },
+    {
+      "api_id": 2292,
+      "api_no": 17,
+      "api_color_no": 4,
+      "api_passed": 0,
+      "api_distance": 5
+    },
+    {
+      "api_id": 2293,
+      "api_no": 18,
+      "api_color_no": 5,
+      "api_passed": 1,
+      "api_distance": 5
+    },
+    {
+      "api_id": 2294,
+      "api_no": 19,
+      "api_color_no": 4,
+      "api_passed": 0,
+      "api_distance": 6
+    },
+    {
+      "api_id": 2295,
+      "api_no": 20,
+      "api_color_no": 4,
+      "api_passed": 0,
+      "api_distance": 1
+    },
+    {
+      "api_id": 2296,
+      "api_no": 21,
+      "api_color_no": 4,
+      "api_passed": 1,
+      "api_distance": 3
+    },
+    {
+      "api_id": 2297,
+      "api_no": 22,
+      "api_color_no": 10,
+      "api_passed": 1,
+      "api_distance": 4
+    },
+    {
+      "api_id": 2298,
+      "api_no": 23,
+      "api_color_no": 4,
+      "api_passed": 0,
+      "api_distance": 5
+    },
+    {
+      "api_id": 2299,
+      "api_no": 24,
+      "api_color_no": 5,
+      "api_passed": 1,
+      "api_distance": 5
+    },
+    {
+      "api_id": 2300,
+      "api_no": 25,
+      "api_color_no": 5,
+      "api_passed": 1,
+      "api_distance": 5
+    },
+    {
+      "api_id": 2301,
+      "api_no": 26,
+      "api_color_no": 5,
+      "api_passed": 1,
+      "api_distance": 5
+    }
+  ],
+  "api_rashin_flg": 1,
+  "api_rashin_id": 4,
+  "api_maparea_id": 38,
+  "api_mapinfo_no": 2,
+  "api_no": 6,
+  "api_color_no": 4,
+  "api_event_id": 6,
+  "api_event_kind": 0,
+  "api_next": 1,
+  "api_bosscell_no": 25,
+  "api_bosscomp": 1,
+  "api_airsearch": {
+    "api_plane_type": 0,
+    "api_result": 0
+  },
+  "api_eventmap": {
+    "api_max_maphp": 1090,
+    "api_now_maphp": 0,
+    "api_dmg": 0
+  },
+  "api_from_no": 0
+}
